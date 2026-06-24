@@ -3,57 +3,156 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Moda Zinciri Katalog</title>
+<title>Moda Zinciri Ürün Kataloğu</title>
 
 <style>
+
 body{
 font-family:Arial,sans-serif;
 background:#f5f5f5;
 margin:0;
-padding:40px;
+padding:20px;
 }
 
 h1{
 text-align:center;
 }
 
-.kart{
-max-width:500px;
-margin:auto;
-background:white;
-padding:20px;
-border-radius:12px;
-box-shadow:0 0 10px rgba(0,0,0,0.1);
+#arama{
+width:100%;
+max-width:600px;
+display:block;
+margin:20px auto;
+padding:15px;
+font-size:18px;
+border:1px solid #ddd;
+border-radius:10px;
 }
 
-img{
+.katalog{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.kart{
+background:white;
+padding:15px;
+border-radius:12px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.kart img{
 width:100%;
+height:300px;
+object-fit:cover;
 border-radius:10px;
 }
 
 .urun{
-margin-top:15px;
-font-size:22px;
+margin-top:10px;
 font-weight:bold;
+font-size:15px;
 text-align:center;
 }
+
 </style>
 
 </head>
-
 <body>
 
 <h1>Moda Zinciri Ürün Kataloğu</h1>
 
+<input
+type="text"
+id="arama"
+placeholder="Ürün ara..."
+onkeyup="ara()"
+/>
+
+<div class="katalog" id="katalog">
+
 <div class="kart">
+<img src="320381 COPACABANA BASKILI ATLET SORT TAKIM.jpeg">
+<div class="urun">320381 COPACABANA BASKILI ATLET SORT TAKIM</div>
+</div>
 
-<img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab">
+<div class="kart">
+<img src="320382 LIMON BASKILI ATLET SORT TAKIM.jpeg">
+<div class="urun">320382 LIMON BASKILI ATLET SORT TAKIM</div>
+</div>
 
-<div class="urun">
-ZİNCİR MODA ÜRÜN KATALOĞU
+<div class="kart">
+<img src="320383 PAPAYA BASKILI ATLET SORT TAKIM.jpeg">
+<div class="urun">320383 PAPAYA BASKILI ATLET SORT TAKIM</div>
+</div>
+
+<div class="kart">
+<img src="320384 FREE SPIRIT BASKILI ATLET SORT TAKIM.jpeg">
+<div class="urun">320384 FREE SPIRIT BASKILI ATLET SORT TAKIM</div>
+</div>
+
+<div class="kart">
+<img src="320385 KIRAZ BASKILI ATLET SORT TAKIM.jpeg">
+<div class="urun">320385 KIRAZ BASKILI ATLET SORT TAKIM</div>
+</div>
+
+<div class="kart">
+<img src="108596-1 AYICIK BASKILI ATLET SORT TAKIM.jpeg">
+<div class="urun">108596-1 AYICIK BASKILI ATLET SORT TAKIM</div>
+</div>
+
+<div class="kart">
+<img src="2072-4161-1 7-11 YAS ERKEK CIZGILI BEL BAGCIKLI KAPRI.jpeg">
+<div class="urun">2072-4161-1 7-11 YAS ERKEK CIZGILI BEL BAGCIKLI KAPRI</div>
+</div>
+
+<div class="kart">
+<img src="2072-4161-2 12-16 YAS ERKEK CIZGILI BEL BAGCIKLI KAPRI.jpeg">
+<div class="urun">2072-4161-2 12-16 YAS ERKEK CIZGILI BEL BAGCIKLI KAPRI</div>
+</div>
+
+<div class="kart">
+<img src="5018 KEMERLI KESIK PACA KOT PANTOLON.jpeg">
+<div class="urun">5018 KEMERLI KESIK PACA KOT PANTOLON</div>
+</div>
+
+<div class="kart">
+<img src="40631 PUANTIYELI DENIM ETEK.jpeg">
+<div class="urun">40631 PUANTIYELI DENIM ETEK</div>
 </div>
 
 </div>
+
+<script>
+
+function ara() {
+
+let filtre =
+document.getElementById("arama")
+.value
+.toUpperCase();
+
+let kartlar =
+document.querySelectorAll(".kart");
+
+kartlar.forEach(function(kart){
+
+let metin =
+kart.innerText.toUpperCase();
+
+if(metin.indexOf(filtre)>-1){
+kart.style.display="";
+}else{
+kart.style.display="none";
+}
+
+});
+
+}
+
+</script>
 
 </body>
 </html>
